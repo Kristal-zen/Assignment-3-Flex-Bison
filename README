@@ -23,7 +23,6 @@ File Manifest:
 	- scanner.exe                     # Executable made after compilation
 	- main.o						  # Has a helping hand in the compilation of the program
 
-
 Compile Instructions:
 	In order to ensure that the program will run properly you must:
 	  1. First and foremost, ensure that you are in the correct directory which is: a3, you can reach this by running the command: cd a3.
@@ -42,14 +41,15 @@ Operating Instruction:
 	  4. Each line from the file will be parsed independently from one and other, keeping in mind that all blank lines are ignored
 
 Design Decisions:
-  Identifiers: For identifiers, a letter followed by letters or digits is allowed with pure digits treated as IDs. Example: 2two is considered invalid and flagged at an earlier stage.
-  Operators: For operateors only the following are recognized: +, -, *, /, % with any other operators being considered an invalid token
-  Assignment recognition: If an equal sign (=) appears anywhere within the line its dealing with then the parser will treat it as an attempt to assign. If an assignment happens to fail then that will lead to an 'invalid assignment' result.
-  Error Reporting: The first invalid token will be caught by the scanner, if there are no invalid tokens but the grammer still fails then that means that A. if an assignment was attempted = issue with invalid assignment, or B. otherwise, that means that it is an issue with an invalid expression.
+  -Identifiers: For identifiers, a letter followed by letters or digits is allowed with pure digits treated as IDs. Example: 2two is considered invalid and flagged at an earlier stage.
+  -Operators: For operateors only the following are recognized: +, -, *, /, % with any other operators being considered an invalid token
+  -Assignment recognition: If an equal sign (=) appears anywhere within the line its dealing with then the parser will treat it as an attempt to assign. If an assignment happens to fail then that will lead to an 'invalid assignment' result.
+  -Error Reporting: The first invalid token will be caught by the scanner, if there are no invalid tokens but the grammer still fails then that means that A. if an assignment was attempted = issue with invalid assignment, or B. otherwise, that means that it is an issue with an invalid expression.
 
 Description of all known deficiencies or bugs:
-	Minimal expression (Grammer): Although it is part of the assignment to have such a simple grammer set up but this is set up in a way that only supports: left to right sequences
-	Trailing Input:
+	-Truncation Warning: There is a warning that will occur when you first compile the files, but this does not affect the output. What this warning is telling the user is that long invalid tokens may be shortened down when coppied into error messages, not affecting the runtime of the program.
+	-Minimal expression (Grammer): Although it is part of the assignment to have such a simple grammer set up but this is set up in a way that only supports: left to right sequences
+	-Trailing Input: For some epression lines, anything that occurs after a valid expression (that is NOT whitespace) can cause a 'invalid expression' rather than a more specific error
 
 Lessons Learned:
 	Working on this project has provided a lot of insight when it came to the following topics: 
